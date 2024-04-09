@@ -13,19 +13,28 @@
 // Output: Palindrome Number
 // Explanation: 121 read backwards as 121.Since these are two same numbers 121 is a palindrome.
 
-function palindrome(n){
-    let numToCheck = n;
+function palindrome(x){
+    // let numToCheck = n;
+    // let rev = 0;
+    // while(n!=0){
+    //     let digit = n%10;
+    //     rev = rev * 10 + digit;
+    //     n = Math.floor(n/10);
+    // }
+    // if (rev === numToCheck){
+    //     return 'Palindrome Number'
+    // } else {
+    //     return 'Not Palindrome Number'
+    // }
+    if (x<0) return false;
+    let dup = x;
     let rev = 0;
-    while(n!=0){
-        let digit = n%10;
-        rev = rev * 10 + digit;
-        n = Math.floor(n/10);
+    while(x!=0){
+        let digit = x%10;
+        rev = rev*10+digit;
+        x=Math.floor(x/10);
     }
-    if (rev === numToCheck){
-        return 'Palindrome Number'
-    } else {
-        return 'Not Palindrome Number'
-    }
+    return rev === dup ? true : false;
 }
 
-console.log(palindrome(n = 1221));
+console.log(palindrome(n = -121));
