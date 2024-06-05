@@ -52,7 +52,7 @@ function secondLargest(arr) {
             secondMax = arr[i];
         }
     }
-    return secondMax;
+    return secondMax === -Infinity ? -1 : secondMax;
 }
 
 //second Smallest
@@ -74,7 +74,7 @@ function secondLargest(arr) {
 //     return secondMin;
 // }
 
-let arr = [56,45,84,3,99,68,13,49,56]
-// let arr = [1, 2, 4, 6, 7, 5]
+let arr = [28, 43, 26, 65, 60, 54, 51, 35, 42, 48, 33, 40, 58, 38, 64, 47, 44, 49, 46, 25, 57, 39, 55 ,45, 29,32 ,61, 53, 31, 36, 56, 63, 30, 52, 27, 34, 50, 41 ,37, 66, 62, 59]
+// let arr = [66, 66, 66, 66, 66, 66]
 console.log(secondLargest(arr));
 // console.log(secondSmallest(arr));
