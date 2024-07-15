@@ -1,14 +1,14 @@
-// Example 1:
-// Input: N = 7, array[] = {1,2,3,4,5,6,7} , k=2 , right
-// Output: 6 7 1 2 3 4 5
-// Explanation: array is rotated to right by 2 position .
+// // Example 1:
+// // Input: N = 7, array[] = {1,2,3,4,5,6,7} , k=2 , right
+// // Output: 6 7 1 2 3 4 5
+// // Explanation: array is rotated to right by 2 position .
 
-// Example 2:
-// Input: N = 6, array[] = {3,7,8,9,10,11} , k=3 , left
-// Output: 9 10 11 3 7 8
-// Explanation: Array is rotated to right by 3 position.
+// // Example 2:
+// // Input: N = 6, array[] = {3,7,8,9,10,11} , k=3 , left
+// // Output: 9 10 11 3 7 8
+// // Explanation: Array is rotated to right by 3 position.
 
-// ---- Left Rotate--------//
+// ---- Left Rotate-------- better approach//
 // function rotateArrayByK(arr,k){
 //     let n = arr.length;
 //     k=k%n;
@@ -31,9 +31,26 @@
 //     return arr;
 // }
 
-// using Javascript Array methods
-//  -------- right rotate --------
+// right rotate - better approach
+// function rotateArrayByK(nums,k){
+//     let n = nums.length;
+//     k=k%n;
+//     let temp = [];
+//     //copy
+//     for(let i=n-k;i<n;i++){
+//         temp[i-(n-k)] = arr[i];
+//     }
+//     //shift
+//     for(let i = n-k-1;i>=0;i--){
+//         arr[i+k] = arr[i]
+//     };
+//     // copy from temp to main
+//     for(let i=0;i<k;i++){
+//         arr[i] = temp[i]
+//     }
+// }
 
+//  -------- right rotate --------using Javascript Array methods
 // function rotateArrayByK(arr,k){
 //     for(let i=0;i<k;i++){
 //         arr.unshift(arr.pop())
@@ -41,8 +58,7 @@
 //     }
 // }
 
-// left rotate
-
+// left rotate - using Javascript Array methods
 // function rotateArrayByK(arr,k){
 //     for(let i=0;i<k;i++){
 //         arr.push(arr.shift())
@@ -77,33 +93,34 @@
 // }
 
 // ----right rotate ------
+// function rotateArrayByK(arr, k) {
+//   let n = arr.length;
 
-function rotateArrayByK(arr, k) {
-  let n = arr.length;
+//   function reverse(arr, start, end) {
+//     if (nums.length < 2) return;
+//     k = k % nums.length;
+//     while (start <= end) {
+//       let temp = arr[start];
+//       arr[start] = arr[end];
+//       arr[end] = temp;
+//       start++;
+//       end--;
+//     }
+//   }
 
-  function reverse(arr, start, end) {
-    if (nums.length < 2) return;
-    k = k % nums.length;
-    while (start <= end) {
-      let temp = arr[start];
-      arr[start] = arr[end];
-      arr[end] = temp;
-      start++;
-      end--;
-    }
-  }
+//   // reverse last k elements
+//   reverse(arr, n - k, n - 1);
 
-  // reverse last k elements
-  reverse(arr, n - k, n - 1);
+//   //reverse first n-k elements
+//   reverse(arr, 0, n - k - 1);
 
-  //reverse first n-k elements
-  reverse(arr, 0, n - k - 1);
-
-  //reverse whole array
-  reverse(arr, 0, n - 1);
-  return arr;
-}
+//   //reverse whole array
+//   reverse(arr, 0, n - 1);
+//   return arr;
+// }
 
 let arr = [1, 2, 3, 4, 5, 6, 7];
 let k = 2;
 console.log(rotateArrayByK(arr, k));
+
+
